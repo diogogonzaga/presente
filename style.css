@@ -1,0 +1,155 @@
+/* GERAL */
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle, #ffe6eb, #ffb3c6);
+    font-family: "Segoe UI", sans-serif;
+}
+
+.container {
+    text-align: center;
+}
+
+/* PRESENTE */
+.gift {
+    width: 170px;
+    height: 170px;
+    position: relative;
+    cursor: pointer;
+    animation: float 2.5s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* CAIXA */
+.box {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(145deg, #e63946, #b11226);
+    border-radius: 14px;
+    position: absolute;
+    bottom: 0;
+    box-shadow: 0 20px 30px rgba(0,0,0,0.3);
+}
+
+/* TAMPA */
+.lid {
+    width: 100%;
+    height: 40%;
+    background: linear-gradient(145deg, #ff4d6d, #d62828);
+    position: absolute;
+    top: 0;
+    border-radius: 14px 14px 6px 6px;
+    transform-origin: bottom;
+    transition: transform 1.2s ease;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.25);
+}
+
+/* FITAS */
+.ribbon-vertical {
+    width: 20px;
+    height: 100%;
+    background: linear-gradient(#ffd166, #fcbf49);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 10px;
+}
+
+.ribbon-horizontal {
+    width: 100%;
+    height: 20px;
+    background: linear-gradient(#ffd166, #fcbf49);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 10px;
+}
+
+/* LAÇO */
+.bow {
+    position: absolute;
+    top: -22px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.bow::before,
+.bow::after {
+    content: "";
+    width: 36px;
+    height: 22px;
+    background: #ffd166;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.bow::before {
+    left: -28px;
+    transform: rotate(25deg);
+}
+
+.bow::after {
+    left: 0;
+    transform: rotate(-25deg);
+}
+
+/* ABERTURA */
+.opened {
+    animation: none;
+}
+
+.opened .lid {
+    transform: rotateX(120deg) translateY(-10px);
+}
+
+/* BRILHO */
+.sparkle {
+    position: absolute;
+    inset: 0;
+    border-radius: 14px;
+    background: radial-gradient(circle, rgba(255,255,255,0.9), transparent 70%);
+    animation: sparkle 1.5s ease-out forwards;
+}
+
+@keyframes sparkle {
+    0% { opacity: 0; transform: scale(0.6); }
+    50% { opacity: 1; }
+    100% { opacity: 0; transform: scale(1.6); }
+}
+
+/* POEMA */
+.poem {
+    margin-top: 40px;
+    max-width: 420px;
+    display: none;
+    font-size: 18px;
+    color: #333;
+    animation: fadeIn 2s forwards;
+}
+
+.friendship {
+    color: #e63946;
+    font-weight: bold;
+}
+
+.light {
+    color: #ffb703;
+    font-weight: bold;
+}
+
+.heart {
+    color: #9b5de5;
+    font-weight: bold;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}

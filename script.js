@@ -1,16 +1,29 @@
 const gift = document.getElementById("gift");
 const poem = document.getElementById("poem");
+const container = document.querySelector(".container");
+
+let isOpen = false;
 
 gift.addEventListener("click", () => {
-    if (gift.classList.contains("opened")) return;
+    if (!isOpen) {
+        // ABRIR
+        gift.classList.add("opened");
+        container.classList.add("opened-layout");
+        poem.classList.add("visible");
 
-    gift.classList.add("opened");
+        // brilho
+        const sparkle = document.createElement("div");
+        sparkle.className = "sparkle";
+        gift.appendChild(sparkle);
+        sparkle.addEventListener("animationend", () => sparkle.remove());
 
-    const sparkle = document.createElement("div");
-    sparkle.classList.add("sparkle");
-    gift.appendChild(sparkle);
+        isOpen = true;
+    } else {
+        // FECHAR
+        gift.classList.remove("opened");
+        container.classList.remove("opened-layout");
+        poem.classList.remove("visible");
 
-    setTimeout(() => {
-        poem.style.display = "block";
-    }, 900);
+        isOpen = false;
+    }
 });

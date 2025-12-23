@@ -5,13 +5,25 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: radial-gradient(circle, #ffe6eb, #ffb3c6);
+  background: radial-gradient(circle at top, #3a0ca3, #240046);
     font-family: "Segoe UI", sans-serif;
 }
 
+
 .container {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    transition: transform 0.8s ease;
 }
+
+.container.opened-layout {
+    transform: translateY(-60px);
+}
+
 
 /* PRESENTE */
 .gift {
@@ -20,6 +32,7 @@ body {
     position: relative;
     cursor: pointer;
     animation: float 2.5s ease-in-out infinite;
+    box-shadow: 0 30px 40px rgba(0,0,0,0.4);
 }
 
 @keyframes float {
@@ -126,30 +139,109 @@ body {
 
 /* POEMA */
 .poem {
-    margin-top: 40px;
-    max-width: 420px;
-    display: none;
+    margin-top: 32px;
+    max-width: 440px;
     font-size: 18px;
-    color: #333;
-    animation: fadeIn 2s forwards;
+    line-height: 1.6;
+    color: #f8f9fa;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 24px 28px;
+    border-radius: 18px;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.4);
+
+    opacity: 0;
+    transform: translateY(15px);
+    pointer-events: none;
+    transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
+.poem.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+
 .friendship {
-    color: #e63946;
+    color: #ffccd5;
     font-weight: bold;
+    text-shadow: 0 0 6px rgba(255, 204, 213, 0.6);
 }
 
 .light {
-    color: #ffb703;
+    color: #ffd166;
     font-weight: bold;
+    text-shadow: 0 0 8px rgba(255, 209, 102, 0.8);
 }
 
 .heart {
-    color: #9b5de5;
+    color: #cdb4db;
     font-weight: bold;
+    text-shadow: 0 0 6px rgba(205, 180, 219, 0.7);
 }
+
+.title {
+    color: #ffd166;
+    text-align: center;
+    margin-bottom: 14px;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(255, 209, 102, 0.8);
+}
+
+
+
+/* FUNDO DE NATAL - NEVE */
+.snow {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.snow::before,
+.snow::after {
+    content: "";
+    position: absolute;
+    inset: -200px;
+    background-image:
+        radial-gradient(4px 4px at 50px 100px, #fff, transparent),
+        radial-gradient(3px 3px at 150px 300px, #fff, transparent),
+        radial-gradient(5px 5px at 250px 50px, #fff, transparent),
+        radial-gradient(3px 3px at 350px 200px, #fff, transparent),
+        radial-gradient(4px 4px at 450px 400px, #fff, transparent),
+        radial-gradient(2.5px 2.5px at 550px 150px, #fff, transparent),
+        radial-gradient(5px 5px at 650px 350px, #fff, transparent);
+    background-size: 700px 700px;
+    animation: snowFall 20s linear infinite;
+    opacity: 0.9;
+}
+
+.snow::after {
+    animation-duration: 30s;
+    opacity: 0.6;
+    filter: blur(0.5px);
+}
+
 
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(15px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+
+@keyframes snowFall {
+    from {
+        transform: translateY(-300px);
+    }
+    to {
+        transform: translateY(100vh);
+    }
+}
+
+@media (max-width: 600px) {
+    .container.opened-layout {
+        transform: translateY(-30px);
+    }
 }

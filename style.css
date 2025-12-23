@@ -166,22 +166,23 @@ body {
 
 
 .friendship {
-    color: #ffccd5;
+    color: #ffccd5; /* rosa suave para amizade e confiança */
     font-weight: bold;
     text-shadow: 0 0 6px rgba(255, 204, 213, 0.6);
 }
 
 .light {
-    color: #ffd166;
+    color: #ffd166; /* amarelo dourado para brilho e positividade */
     font-weight: bold;
     text-shadow: 0 0 8px rgba(255, 209, 102, 0.8);
 }
 
 .heart {
-    color: #cdb4db;
+    color: #cdb4db; /* lilás suave para emoção e sentimento */
     font-weight: bold;
     text-shadow: 0 0 6px rgba(205, 180, 219, 0.7);
 }
+
 
 .title {
     color: #ffd166;

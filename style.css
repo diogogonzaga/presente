@@ -154,6 +154,8 @@ body {
     transform: translateY(15px);
     pointer-events: none;
     transition: opacity 0.8s ease, transform 0.8s ease;
+
+    text-align: left; /* Adicionado para alinhar o texto à esquerda */
 }
 
 .poem.visible {
